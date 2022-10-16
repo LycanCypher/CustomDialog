@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">CustomDialog</string>
+    <string name="success_dialog">Diálogo exitoso</string>
+    <string name="error_dialog">Diálogo de error</string>
+    <string name="alert_dialog">Diálogo de alerta</string>
+    <string name="confirm_dialog">Diálogo de confirmación</string>
+    <string name="input_dialog">Diálogos de input</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btn_aceptar">Aceptar</string>
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="content_image">icono</string>
+    <string name="title_success">¡Operación Exitosa!</string>
+    <string name="title_error">Error</string>
+    <string name="title_confirm">Confirmar</string>
+    <string name="title_caution">¡Aviso!</string>
+    <string name="title_input">Capturar...</string>
+    <string name="input_phone">Ingesar teléfono</string>
+    <string name="input_name">Ingresar nombre</string>
+    <string name="input_data">El dato ingresado es:</string>
+    <string name="msg_success">La operación ha sido un éxito</string>
+    <string name="msg_error">Hubo un error, intente de nuevo</string>
+    <string name="msg_caution">La operación no es válida</string>
+    <string name="msg_question">En verdad desea continuar???</string>
+    <string name="hint_name">Ingrese tu nombre</string>
+    <string name="hint_phone">Ingrese su número telefónico</string>
+    <string name="action_released">La acción se ha realizado</string>
+    <string name="requerido">Requerido</string>
+</resources>

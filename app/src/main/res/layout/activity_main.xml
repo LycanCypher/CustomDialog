@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Nota: es importante evitar el uso de dimensiones absolutas para
+ los márgenes y dimensiones de imágenes y layouts. En su lugar se deben
+ usar porcentajes para que su tamaño se determinen en función del tamaño
+ del dispositivo.
+  También es importante notar que en el modelo MVVM, los eventos se definen
+  en este archivo y no en el archivo lógico.-->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".mainModule.view.MainActivity">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_graph"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="androidx.core.content.ContextCompat"/>
+        <import type="org.lycancypher.customdialog.common.utils.Utils"/>
+        <import type="android.text.TextUtils"/>
+
+        <variable
+            name="listener"
+            type="org.lycancypher.customdialog.customDialogModule.view.adapters.OnClickListener" />
+
+        <variable
+            name="type"
+            type="Integer" />
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="msg"
+            type="String" />
+
+        <variable
+            name="hint"
+            type="String" />
+
+        <variable
+            name="textoApariencia"
+            type="Boolean" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/margin1V"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="@integer/margin1cv" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/margin2V"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="@integer/margin2cv" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/margin1H"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="@integer/margin3cv" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/margin2H"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="@integer/margin4cv" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/margin5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="@integer/margin5cv" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/margin6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="@integer/margin6cv" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:cardCornerRadius="@dimen/default_radius_card"
+            app:cardElevation="@dimen/default_elevation_card"
+            app:layout_constraintStart_toStartOf="@id/margin1V"
+            app:layout_constraintEnd_toEndOf="@id/margin2V"
+            app:layout_constraintTop_toTopOf="@id/margin1H"
+            app:layout_constraintBottom_toBottomOf="@id/margin2H">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guide1V"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="@integer/guide1cv" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guide1aV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="@integer/guide5cv" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guide1bV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="@{type}" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guide2V"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="@integer/guide2cv" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guide1H"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="@{type}" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guide1aH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="@integer/guide4cv" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guide2H"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="@integer/guide3cv" />
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{Utils.INSTANCE.getTitle(type)}"
+                    tools:text="Title"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/guide1V"
+                    app:layout_constraintEnd_toEndOf="@id/guide2V"
+                    app:layout_constraintTop_toTopOf="@id/guide1H"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{msg}"
+                    tools:text="Mensaje"
+                    android:textAlignment="center"
+                    app:isGone="@{!TextUtils.isEmpty(hint)}"
+                    app:apariencia_texto="@{textoApariencia}"
+                    app:layout_constraintStart_toStartOf="@id/guide1V"
+                    app:layout_constraintEnd_toEndOf="@id/guide2V"
+                    app:layout_constraintTop_toBottomOf="@id/tvTitle"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@{hint}"
+                    app:isGone="@{TextUtils.isEmpty(hint)}"
+                    app:endIconMode="clear_text"
+                    app:layout_constraintStart_toStartOf="@id/guide1V"
+                    app:layout_constraintEnd_toEndOf="@id/guide2V"
+                    app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                    app:layout_constraintBottom_toTopOf="@id/guide1aH">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tietText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="@{hint}"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_aceptar"
+                    android:onClick="@{() -> listener.onClickOk(true)}"
+                    android:textAllCaps="false"
+                    android:paddingVertical="@dimen/common_default_padding"
+                    android:backgroundTint="@{ContextCompat.getColor(context, Utils.INSTANCE.getColor(type))}"
+                    app:cornerRadius="@dimen/btn_default_radius"
+                    app:layout_constraintBottom_toBottomOf="@id/guide2H"
+                    app:layout_constraintStart_toStartOf="@id/guide1bV"
+                    app:layout_constraintEnd_toEndOf="@id/guide2V"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_cancelar"
+                    android:onClick="@{() -> listener.onClickOk(false)}"
+                    android:textAllCaps="false"
+                    isGoneT="@{type}"
+                    android:paddingVertical="@dimen/common_default_padding"
+                    android:backgroundTint="@{ContextCompat.getColor(context, Utils.INSTANCE.getColor(type))}"
+                    app:cornerRadius="@dimen/btn_default_radius"
+                    app:layout_constraintBottom_toBottomOf="@id/guide2H"
+                    app:layout_constraintStart_toStartOf="@id/guide1V"
+                    app:layout_constraintEnd_toEndOf="@id/guide1aV"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <ImageView
+            android:id="@+id/ivType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:src="@{ContextCompat.getDrawable(context, Utils.INSTANCE.getIcon(type))}"
+            android:gravity="center_vertical"
+            android:padding="@dimen/common_default_padding"
+            android:contentDescription="@string/content_image"
+            android:background="@{ContextCompat.getDrawable(context, Utils.INSTANCE.getBackgroundIcon(type))}"
+            app:layout_constraintBottom_toTopOf="@id/cardview"
+            app:layout_constraintStart_toStartOf="@id/cardview"
+            app:layout_constraintEnd_toEndOf="@id/cardview"
+            app:layout_constraintTop_toTopOf="@id/cardview"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

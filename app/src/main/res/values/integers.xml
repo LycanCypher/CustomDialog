@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Márgenes default -->
+    <item name="margin1" format="float" type="integer">0.03</item>
+    <item name="margin2" format="float" type="integer">0.97</item>
+    <item name="margin3" format="float" type="integer">0.02</item>
+    <item name="margin4" format="float" type="integer">0.98</item>
+
+    <!-- Márgenes cardview -->
+    <item name="margin1cv" format="float" type="integer">0.1</item>
+    <item name="margin2cv" format="float" type="integer">0.9</item>
+    <item name="margin3cv" format="float" type="integer">0.3</item>
+    <item name="margin4cv" format="float" type="integer">0.7</item>
+    <item name="margin5cv" format="float" type="integer">0.39</item>
+    <item name="margin6cv" format="float" type="integer">0.61</item>
+
+    <item name="guide1cv" format="float" type="integer">0.04</item>
+    <item name="guide2cv" format="float" type="integer">0.96</item>
+    <item name="guide3cv" format="float" type="integer">0.95</item>
+    <item name="guide4cv" format="float" type="integer">0.74</item>
+    <item name="guide5cv" format="float" type="integer">0.48</item>
+</resources>

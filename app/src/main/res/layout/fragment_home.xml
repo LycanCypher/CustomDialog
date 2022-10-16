@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Nota: es importante evitar el uso de dimensiones absolutas o hardcodeadas
+ para los márgenes y dimensiones de imágenes y layouts. En su lugar se deben
+ usar porcentajes para que sus tamaños se determinen en función del tamaño
+ del display del dispositivo.
+  También es importante notar que en el modelo MVVM, los eventos se definen
+  en este archivo y no en el archivo lógico.-->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="listener"
+            type="org.lycancypher.customdialog.homeModule.view.adapters.OnClickListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/margin1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="@integer/margin1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/margin2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="@integer/margin2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/margin3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="@integer/margin3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/margin4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="@integer/margin4" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSuccess"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/success_dialog"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/success_dialog"
+            app:cornerRadius="@dimen/btn_default_radius"
+            android:paddingVertical="@dimen/default_padding"
+            android:onClick="@{() -> listener.onClickSuccess()}"
+            app:layout_constraintStart_toStartOf="@id/margin1"
+            app:layout_constraintEnd_toEndOf="@id/margin2"
+            app:layout_constraintTop_toTopOf="@id/margin3"
+            app:layout_constraintBottom_toTopOf="@id/view1" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/purple_200"
+            app:layout_constraintStart_toStartOf="@id/margin1"
+            app:layout_constraintEnd_toEndOf="@id/margin2"
+            app:layout_constraintTop_toBottomOf="@id/btnSuccess"
+            app:layout_constraintBottom_toTopOf="@id/btnError" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnError"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/error_dialog"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/error_dialog"
+            app:cornerRadius="@dimen/btn_default_radius"
+            android:paddingVertical="@dimen/default_padding"
+            android:onClick="@{() -> listener.onClickError()}"
+            app:layout_constraintStart_toStartOf="@id/margin1"
+            app:layout_constraintEnd_toEndOf="@id/margin2"
+            app:layout_constraintTop_toBottomOf="@id/view1"
+            app:layout_constraintBottom_toTopOf="@id/view2" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/purple_200"
+            app:layout_constraintStart_toStartOf="@id/margin1"
+            app:layout_constraintEnd_toEndOf="@id/margin2"
+            app:layout_constraintTop_toBottomOf="@id/btnError"
+            app:layout_constraintBottom_toTopOf="@id/btnAlert" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAlert"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/alert_dialog"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/alert_dialog"
+            app:cornerRadius="@dimen/btn_default_radius"
+            android:paddingVertical="@dimen/default_padding"
+            android:onClick="@{() -> listener.onClickAlert()}"
+            app:layout_constraintStart_toStartOf="@id/margin1"
+            app:layout_constraintEnd_toEndOf="@id/margin2"
+            app:layout_constraintTop_toBottomOf="@id/view2"
+            app:layout_constraintBottom_toTopOf="@id/view3" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/purple_200"
+            app:layout_constraintStart_toStartOf="@id/margin1"
+            app:layout_constraintEnd_toEndOf="@id/margin2"
+            app:layout_constraintTop_toBottomOf="@id/btnAlert"
+            app:layout_constraintBottom_toTopOf="@id/btnConfirm" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnConfirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/confirm_dialog"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/confirm_dialog"
+            app:cornerRadius="@dimen/btn_default_radius"
+            android:paddingVertical="@dimen/default_padding"
+            android:onClick="@{() -> listener.onClickConfirm()}"
+            app:layout_constraintStart_toStartOf="@id/margin1"
+            app:layout_constraintEnd_toEndOf="@id/margin2"
+            app:layout_constraintTop_toBottomOf="@id/view3"
+            app:layout_constraintBottom_toTopOf="@id/view4" />
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/purple_200"
+            app:layout_constraintStart_toStartOf="@id/margin1"
+            app:layout_constraintEnd_toEndOf="@id/margin2"
+            app:layout_constraintTop_toBottomOf="@id/btnConfirm"
+            app:layout_constraintBottom_toTopOf="@id/tvInput" />
+
+        <TextView
+            android:id="@+id/tvInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/input_dialog"
+            android:gravity="center_horizontal"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            app:layout_constraintStart_toStartOf="@id/margin1"
+            app:layout_constraintEnd_toEndOf="@id/margin2"
+            app:layout_constraintTop_toBottomOf="@id/view4"
+            app:layout_constraintBottom_toTopOf="@id/btnInputName"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnInputName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/input_name"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/input_dialog"
+            app:cornerRadius="@dimen/btn_default_radius"
+            android:paddingVertical="@dimen/default_padding"
+            android:onClick="@{() -> listener.onClickInput(true)}"
+            app:layout_constraintStart_toStartOf="@id/margin1"
+            app:layout_constraintEnd_toEndOf="@id/margin2"
+            app:layout_constraintTop_toBottomOf="@id/tvInput"
+            app:layout_constraintBottom_toTopOf="@id/btnInputPhone" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnInputPhone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/input_phone"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/input_dialog"
+            app:cornerRadius="@dimen/btn_default_radius"
+            android:paddingVertical="@dimen/default_padding"
+            android:onClick="@{() -> listener.onClickInput(false)}"
+            app:layout_constraintStart_toStartOf="@id/margin1"
+            app:layout_constraintEnd_toEndOf="@id/margin2"
+            app:layout_constraintTop_toBottomOf="@id/btnInputName"
+            app:layout_constraintBottom_toTopOf="@id/margin4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

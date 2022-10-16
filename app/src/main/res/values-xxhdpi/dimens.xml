@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_padding">16dp</dimen>
+    <dimen name="btn_default_radius">16dp</dimen>
+    <dimen name="default_radius_card">20dp</dimen>
+    <dimen name="default_elevation_card">4dp</dimen>
+    <dimen name="common_default_padding">8dp</dimen>
+
+    <!-- texto apariencia -->
+    <bool name="texto_apariencia_xxxhdpi">false</bool>
+</resources>
