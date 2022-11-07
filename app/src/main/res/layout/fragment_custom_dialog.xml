@@ -32,6 +32,10 @@
             name="textoApariencia"
             type="Boolean" />
 
+        <variable
+            name="sizeIcon"
+            type="Float" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -66,24 +70,10 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="@integer/margin4cv" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/margin5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="@integer/margin5cv" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/margin6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="@integer/margin6cv" />
-
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardview"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             app:cardCornerRadius="@dimen/default_radius_card"
             app:cardElevation="@dimen/default_elevation_card"
             app:layout_constraintStart_toStartOf="@id/margin1V"
@@ -131,67 +121,63 @@
                     app:layout_constraintGuide_percent="@{type}" />
 
                 <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guide1aH"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintGuide_percent="@integer/guide4cv" />
-
-                <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/guide2H"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     app:layout_constraintGuide_percent="@integer/guide3cv" />
 
-                <TextView
-                    android:id="@+id/tvTitle"
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@{Utils.INSTANCE.getTitle(type)}"
-                    tools:text="Title"
-                    android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                    android:textStyle="bold"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/margin_top_lytTitle"
+                    android:layout_marginBottom="@dimen/margin_bottom_lytTitle"
                     app:layout_constraintStart_toStartOf="@id/guide1V"
                     app:layout_constraintEnd_toEndOf="@id/guide2V"
-                    app:layout_constraintTop_toTopOf="@id/guide1H"/>
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/btnOk">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@{msg}"
-                    tools:text="Mensaje"
-                    android:textAlignment="center"
-                    app:isGone="@{!TextUtils.isEmpty(hint)}"
-                    app:apariencia_texto="@{textoApariencia}"
-                    app:layout_constraintStart_toStartOf="@id/guide1V"
-                    app:layout_constraintEnd_toEndOf="@id/guide2V"
-                    app:layout_constraintTop_toBottomOf="@id/tvTitle"/>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tilText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:hint="@{hint}"
-                    app:isGone="@{TextUtils.isEmpty(hint)}"
-                    app:endIconMode="clear_text"
-                    app:layout_constraintStart_toStartOf="@id/guide1V"
-                    app:layout_constraintEnd_toEndOf="@id/guide2V"
-                    app:layout_constraintTop_toBottomOf="@id/tvTitle"
-                    app:layout_constraintBottom_toTopOf="@id/guide1aH">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tietText"
+                    <TextView
+                        android:id="@+id/tvTitle"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:inputType="@{hint}"
-                        android:maxLines="1"
-                        android:singleLine="true"/>
+                        android:layout_height="wrap_content"
+                        android:text="@{Utils.INSTANCE.getTitle(type), default=`Título`}"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.CustomDialog.Headline6"
+                        android:textStyle="bold" />
 
-                </com.google.android.material.textfield.TextInputLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{msg}"
+                        android:textAlignment="center"
+                        app:isGone="@{!TextUtils.isEmpty(hint)}"
+                        tools:text="Mensaje" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@{hint}"
+                        app:isGone="@{TextUtils.isEmpty(hint)}"
+                        app:endIconMode="clear_text">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tietText"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="@{hint}"
+                            android:maxLines="1"
+                            android:minLines="1"
+                            android:singleLine="true"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnOk"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/btn_aceptar"
@@ -224,8 +210,8 @@
 
         <ImageView
             android:id="@+id/ivType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@{sizeIcon, default=@dimen/size_icon_default}"
+            android:layout_height="@{sizeIcon, default=@dimen/size_icon_default}"
             android:elevation="4dp"
             android:src="@{ContextCompat.getDrawable(context, Utils.INSTANCE.getIcon(type))}"
             android:gravity="center_vertical"

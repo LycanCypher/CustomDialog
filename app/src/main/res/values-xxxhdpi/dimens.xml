@@ -5,6 +5,8 @@
     <dimen name="default_radius_card">20dp</dimen>
     <dimen name="default_elevation_card">4dp</dimen>
     <dimen name="common_default_padding">8dp</dimen>
+    <dimen name="margin_top_lytTitle">36dp</dimen>
+    <dimen name="margin_bottom_lytTitle">8dp</dimen>
 
     <!-- texto apariencia -->
     <bool name="texto_apariencia_xxxhdpi">true</bool>

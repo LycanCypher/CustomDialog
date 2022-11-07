@@ -96,4 +96,22 @@ object Utils {
         }
         return isValid
     }
+
+    fun getDeviceWidth(mContext: Context, factor: Float): Float {
+        var width: Float
+        mContext.resources.displayMetrics.let {
+            val dpWidth = it.widthPixels / it.density
+            width = dpWidth / factor
+        }
+        return width
+    }
+
+    fun getDeviceHeight(mContext: Context, factor: Float): Float {
+        var height: Float
+        mContext.resources.displayMetrics.let {
+            val dpHeight = it.heightPixels / it.density
+            height = dpHeight / factor
+        }
+        return height
+    }
 }

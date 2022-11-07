@@ -18,10 +18,10 @@
     <string name="input_phone">Ingesar teléfono</string>
     <string name="input_name">Ingresar nombre</string>
     <string name="input_data">El dato ingresado es:</string>
-    <string name="msg_success">La operación ha sido un éxito</string>
-    <string name="msg_error">Hubo un error, intente de nuevo</string>
-    <string name="msg_caution">La operación no es válida</string>
-    <string name="msg_question">En verdad desea continuar???</string>
+    <string name="msg_success">Este mensaje es breve.</string>
+    <string name="msg_error">Mensaje medianamente largo que explica el resultado del error.</string>
+    <string name="msg_caution">Mensaje más largo que explica el porqué ha ocurrido la alerta, normalmente por un campo sin llenar u otra condición requerida.</string>
+    <string name="msg_question">Este mensaje es de confirmación, es muy largo y le pregunta al usuario si confirma la acción a realizar y las consecuencias de ello en caso de ser afirmativa su respuesta.</string>
     <string name="hint_name">Ingrese tu nombre</string>
     <string name="hint_phone">Ingrese su número telefónico</string>
     <string name="action_released">La acción se ha realizado</string>

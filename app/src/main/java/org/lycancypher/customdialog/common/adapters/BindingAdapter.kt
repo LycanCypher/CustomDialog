@@ -2,6 +2,7 @@ package org.lycancypher.customdialog.common.adapters
 
 import android.text.InputType
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.Guideline
@@ -49,9 +50,9 @@ fun setLayoutConstraintGuidePercent2(view: Guideline, type: Int) {
 @BindingAdapter("apariencia_texto")
 fun setTextAppareance(view: TextView, active: Boolean) {
     if (active) {
-        TextViewCompat.setTextAppearance(view, androidx.transition.R.style.TextAppearance_AppCompat_Caption)
+        TextViewCompat.setTextAppearance(view, R.style.TextAppearance_CustomDialog_Caption)
     } else {
-        TextViewCompat.setTextAppearance(view, androidx.transition.R.style.TextAppearance_AppCompat_Body1)
+        TextViewCompat.setTextAppearance(view, R.style.TextAppearance_CustomDialog_Body1)
     }
 }
 
@@ -63,5 +64,23 @@ fun setInputType(view: TextInputEditText, hint: String) {
         view.inputType = InputType.TYPE_TEXT_FLAG_CAP_SENTENCES
     }
 }
+
+@BindingAdapter("android:layout_width")
+fun setLayoutWidth(view: ImageView, width: Float) {
+    val layoutParams = view.layoutParams
+    layoutParams.width = (width * view.resources.displayMetrics.density).toInt()
+    view.layoutParams = layoutParams
+    view.invalidate()
+}
+
+@BindingAdapter("android:layout_height")
+fun setLayoutHeight(view: ImageView, height: Float) {
+    val layoutParams = view.layoutParams
+    layoutParams.height = (height * view.resources.displayMetrics.density).toInt()
+    view.layoutParams = layoutParams
+    view.invalidate()
+}
+
+
 
 

@@ -13,6 +13,7 @@ import androidx.window.layout.WindowMetricsCalculator
 import org.lycancypher.customdialog.BR
 import org.lycancypher.customdialog.R
 import org.lycancypher.customdialog.common.utils.TietPhoneMask
+import org.lycancypher.customdialog.common.utils.Utils
 import org.lycancypher.customdialog.common.utils.Utils.validateFields
 import org.lycancypher.customdialog.customDialogModule.view.adapters.OnClickListener
 import org.lycancypher.customdialog.customDialogModule.view.adapters.OnDismissListener
@@ -40,14 +41,16 @@ class CustomDialogFragment(
         super.onViewCreated(view, savedInstanceState)
 
         setupViewmodel()
+
+        if (showsDialog) {
+            setupSize()
+        }
     }
 
     override fun onStart() {
         super.onStart()
 
-        if (showsDialog) {
-            setupSize()
-        }
+
         if (pista.isNotEmpty() && pista.lowercase(Locale.getDefault()).contains("telefónico")) {
             binding.tietText.addTextChangedListener(TietPhoneMask.insert(binding.tietText))
         } else {
@@ -61,6 +64,7 @@ class CustomDialogFragment(
         binding.setVariable(BR.type, tipo)
         binding.setVariable(BR.msg, message)
         binding.setVariable(BR.hint, pista)
+        binding.setVariable(BR.sizeIcon, Utils.getDeviceWidth(requireContext(), 5.5f))
         binding.setVariable(BR.textoApariencia, resources.getBoolean(R.bool.texto_apariencia_xxxhdpi))
     }
 
