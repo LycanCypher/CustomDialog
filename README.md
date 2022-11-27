@@ -38,6 +38,18 @@ Estos díalogos reciben una cadena que puede ser un nombre de persona o un núme
 
 <a href="https://drive.google.com/uc?export=view&id=14Nzs4efQNvQRGCsSVYTl_IUYcRKsNNl2"><img src="https://drive.google.com/uc?export=view&id=14Nzs4efQNvQRGCsSVYTl_IUYcRKsNNl2" style="width: 300px; max-width: 50%; height: auto" title="Click to enlarge picture" /></a>
 
+<h3>Aspectos relevantes del proyecto</h3>
+Si bien el proyecto consiste básicamente en la implementación de un simple cuadro de diálogo personalizado, a continuación se describen los aspectos más interesantes del mismo y que pueden ser tomados como referencia para otros proyectos.
 
+<br>
+<br>
+
+ <ul>
+  <li>Estructura de layouts basado en la utilización de ConstraintLayout y líneas guía</li>
+  <li>Uso de Databinding</li>
+  <li>Arquitectura MVVM</li>
+  <li>Implementación de adapters</li>
+  <li>Implementación de funciones comunes</>
+</ul> 
 
 
